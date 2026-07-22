@@ -18,6 +18,13 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
+== Intro
+
+[NOTE]
+====
+Most stuff that works in vanilla vimscript also works on neovim.
+====
+
 == Copy file path to clipboard
 
 === Relative path
