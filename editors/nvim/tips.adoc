@@ -60,3 +60,53 @@ Lua:
 ----
 :lua setreg('+', vim.fn.expand('%:p'))
 ----
+
+=== Keymaps
+
+Given this utility `keymap` function:
+
+[source,lua]
+----
+local function keymap(mode, keys, action, description)
+  vim.keymap.set(
+    mode,
+    keys,
+    action,
+    {
+      noremap = true,
+      silent = true,
+      nowait = true,
+      desc = description,
+    }
+  )
+end
+----
+
+Then we can add `<Leader>yp` and `<Leader>yP` to yank the relative and absolute paths of the current buffer:
+
+[source,lua]
+----
+local yank_relative_path = function()
+  vim.fn.setreg('+', vim.fn.expand('%'))
+  print('Yanked relative path for ' .. vim.fn.expand('%'))
+end
+
+keymap(
+  'n',
+  '<Leader>yp',
+  yank_relative_path,
+  '[y]ank [p]ath'
+)
+
+local yank_absolute_path = function()
+  vim.fn.setreg('+', vim.fn.expand('%:p'))
+  print('Yanked absolute path for ' .. vim.fn.expand('%:p'))
+end
+
+keymap(
+  'n',
+  '<Leader>yP',
+  yank_absolute_path,
+  '[y]ank full [P]ath'
+)
+----
