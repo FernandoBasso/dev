@@ -1,0 +1,55 @@
+= Nvim Tips
+:page-subtitle: 
+:page-tags: nvim
+:description: Nvim tips on useful stuff that come in handy in different situations
+:favicon: https://fernandobasso.dev/cmdline.png
+:icons: font
+:sectlinks:
+:sectnums!:
+:toclevels: 6
+:toc: left
+:source-highlighter: highlight.js
+:stem: latexmath
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+== Copy file path to clipboard
+
+=== Relative path
+
+Relative from nvim's `:pwd`, (like `pwd` or `$PWD` in the shell).
+
+Vanilla Vim:
+
+[source,text]
+----
+:let @+ = expand('%')
+----
+
+Lua:
+
+[source,text]
+----
+:lua setreg('+', vim.fn.expand('%'))
+----
+
+=== Absolute (full) path
+
+Vanilla Vim:
+
+[source,text]
+----
+:let @+ = expand('%:p')
+----
+
+Lua:
+
+[source,text]
+----
+:lua setreg('+', vim.fn.expand('%:p'))
+----
