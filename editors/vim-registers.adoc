@@ -1,0 +1,52 @@
+= Vim Registers
+:page-subtitle: 
+:page-tags: 
+:favicon: https://fernandobasso.dev/cmdline.png
+:icons: font
+:sectlinks:
+:sectnums!:
+:toclevels: 6
+:source-highlighter: highlight.js
+:experimental:
+:stem: latexmath
+:toc: left
+:imagesdir: __assets
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+== Intro
+
+[NOTE]
+====
+Whenever possible, the vanilla vimscript _and_ the neovim, lua approach will be shown.
+====
+
+For example, add the relative path of the current buffer to the register `f`:
+
+[source,text]
+----
+:let @f = expand('%')
+:lua vim.fn.setreg('f', vim.fn.expand('%'))
+----
+
+We can then echo the contents of the register on the command line:
+
+[source,text]
+----
+:echo @f
+:= vim.fn.getreg('f')
+:lua print(vim.fn.getreg('f'))
+----
+
+We can also paste the contents of the register into a buffer.
+In INSERT mode, type kbd:[Ctrl+r f]. `r` stands for “register”, and `f` is the register letter we've been using for these examples so far.
+
+== References
+
+- `:help vim-modes-intro`
+- `:help i_CTRL-R`

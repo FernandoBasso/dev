@@ -27,6 +27,11 @@ Most stuff that works in vanilla vimscript also works on neovim.
 
 == Copy file path to clipboard
 
+[IMPORTANT]
+====
+The buffer must be written to a file, otherwise, if it only lives in memory, there is no file path associated with the buffer, which means there is no path to be copied.
+====
+
 === Relative path
 
 Relative from nvim's `:pwd`, (like `pwd` or `$PWD` in the shell).
@@ -110,3 +115,5 @@ keymap(
   '[y]ank full [P]ath'
 )
 ----
+
+
