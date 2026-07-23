@@ -43,8 +43,10 @@ We can then echo the contents of the register on the command line:
 :lua print(vim.fn.getreg('f'))
 ----
 
+== Paste contents of register into a buffer
+
 We can also paste the contents of the register into a buffer.
-In INSERT mode, type kbd:[Ctrl+r f]. `r` stands for “register”, and `f` is the register letter we've been using for these examples so far.
+In INSERT mode, type kbd:[Ctrl+r] kbd:[f]. `r` stands for “register”, and `f` is the register letter we've been using for these examples so far.
 
 == References
 
