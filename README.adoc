@@ -36,7 +36,7 @@ I'm gradually moving them here, but in the mean time, they are still available i
 
 == How I navigate and preview these files
 
-Mostly, I use Vim & Emacs to search for text, filenames, etc., sometimes with the help of `fzf`, both inside the editors or directly on the command line.
+Mostly, I use Vim & Emacs write/edit my notes, search for text, filenames, etc., sometimes with the help of `fzf`, both inside the editors or directly on the command line.
 VS Code also has a great extension to work with AsciiDoc[tor].
 
 I open an `.adoc` file in Firefox with a command line like this:
