@@ -1,11 +1,29 @@
-= Welcome
+= Dev Notes
+:page-subtitle:
+:page-tags:
+:description:
+:favicon: https://fernandobasso.dev/cmdline.png
+:icons: font
+:sectlinks:
+:sectnums!:
+:toclevels: 6
+:toc: left
+:source-highlighter: highlight.js
+:stem: latexmath
+:experimental:
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
 
-This is a website where I keep  my personal software development collection of tips, tutorials, ideas, code, solutions and whatever else I see fit to drop here.
+== Intro
 
-Currently, the source files are on a Gitlab repository and hosted on Gitlab pages:
+This is a where I keep  my personal software development collection of tips, tutorials, ideas, code, solutions and whatever else I see fit to drop here.
 
 * https://gitlab.com/fernandobasso/dev
-* https://fernandobasso.gitlab.io/dev
 
 I have tried other approaches of taking notes and writing tutorials over the years.
 I'm gradually moving them here, but in the mean time, they are still available in these other URLs:
@@ -15,3 +33,16 @@ I'm gradually moving them here, but in the mean time, they are still available i
 * https://fernandobasso.dev/devhowto/
 * https://fernandobasso.gitlab.io/devhowto/
 * https://gitlab.com/fernandobasso/dev-notes-backup
+
+== How I navigate and preview these files
+
+Mostly, I use Vim & Emacs to search for text, filenames, etc., sometimes with the help of `fzf`, both inside the editors or directly on the command line.
+VS Code also has a great extension to work with AsciiDoc[tor].
+
+I open an `.adoc` file in Firefox with a command line like this:
+
+[source,text]
+----
+$ firefox "$(fzf)"
+----
+
