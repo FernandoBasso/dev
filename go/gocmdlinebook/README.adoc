@@ -27,11 +27,56 @@ These are my notes (and code) for the book Powerful Command-Line Applications in
 
 [source,bash]
 ----
-mkdir -pv ./ch01-word-count/wcv1
-cd !$
-go mod init wc
+$ mkdir -pv ./ch01-word-count/wcv1
+$ cd !$
+$ go mod init wc
 ----
 
 * https://github.com/golang/go/wiki/Modules
 
+=== V1
 
+We read from STDIN.
+Therefore, this is wrong:
+
+[source,bash]
+----
+$ go run ./main.go 'foo bar'
+----
+
+The 'foo bar' is a parameter, not STDIN.
+Then, how to provide STDIN to the program?
+
+Pipe data to the program:
+
+[source,bash]
+----
+$ echo 'foo bar' | go run ./main.go
+2
+----
+
+Or use a “HERE STRING”:
+
+[sourc,bash]
+----
+$ go run ./main.go <<<'foo bar'
+2
+----
+
+Or provide a file as STDIN to the program:
+
+[source,bash]
+----
+$ 1> ./in.txt echo foo\ bar
+
+$ cat in.txt
+foo bar
+
+$ 0< ./in.txt go run ./main.go
+2
+----
+
+[TIP]
+====
+Where there is a shell, there is a way!
+====
