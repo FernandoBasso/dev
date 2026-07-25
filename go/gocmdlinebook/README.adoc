@@ -1,0 +1,37 @@
+= Powerful Command-Line Applications in Go Book Notes
+:page-subtitle:
+:page-tags:
+:description:
+:favicon: https://fernandobasso.dev/cmdline.png
+:icons: font
+:sectlinks:
+:sectnums!:
+:toclevels: 6
+:toc: left
+:source-highlighter: highlight.js
+:stem: latexmath
+:experimental:
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+== Intro
+
+These are my notes (and code) for the book Powerful Command-Line Applications in Go.
+
+== 01 word counter
+
+[source,bash]
+----
+mkdir -pv ./ch01-word-count/wcv1
+cd !$
+go mod init wc
+----
+
+* https://github.com/golang/go/wiki/Modules
+
+
