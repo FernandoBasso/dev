@@ -1,22 +1,28 @@
 #!/usr/bin/env bash
 
 ##
-# Optimized un-committed PNG images (staged or not).
+# Optimizes un-committed PNG images (staged or not).
 #
 # This script depends on optipng, git and some standard Unix
 # command line utilities.
-#
+##
 
-optipng -o7 $(
+##
+# Get an array of uncommitted .png images.
+#
+readarray -t arr < <(\
   git status --short --porcelain \
     | grep '\.png$' \
-    | tr -s ' ' \
-    | cut -d ' ' -f 2 \
-  )
+    | cut -c 4- \
+)
 
 ##
-# The git status command outputs different number of spaces between the
-# output columns depending on whether the files have been already staged
-# or not. By squeezing the spaces, we make sure the cut command works
-# for staged and non-staged images on the output of git status.
-##
+# Optimize .png images, if any.
+#
+if (( "${#arr[@]}" > 0 ))
+then
+  for f in "${arr[@]}"
+  do
+    echo "→ $f"
+  done
+fi
