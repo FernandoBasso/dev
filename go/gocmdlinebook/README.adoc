@@ -76,7 +76,19 @@ $ 0< ./in.txt go run ./main.go
 2
 ----
 
+Or with `cat` using a here document and a pipe:
+
+[source,bash]
+----
+$ cat <<EOF | go run ./main.go
+> how many words?
+> EOF
+3
+----
+
 [TIP]
 ====
 Where there is a shell, there is a way!
 ====
+
+== The end
