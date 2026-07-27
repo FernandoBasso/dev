@@ -43,7 +43,7 @@ Error:
 
 File exists and is not empty. Refusing to override. Stopping!
 EOF
-  exit  1
+  exit 1
 }
 
 if [[ $# != 2 ]]

@@ -1,0 +1,13 @@
+:description: Notes, tips and example configuration on using Tree Sitter with Emacs.
+:tags: ["emacs", "tree-sitter"]
+
+== tree-sitter-font-level
+
+By default, the variable `tree-sitter-font-level` is set to 3.
+With doom-one-light theme, It gives this kind of result:
+
+image::../__assets/doom-one-light-tree-sitter-font-level-3.png[Doom One Light with tree-sitter-font-level 3]
+
+With `tree-sitter-font-level` set to 4, it improves the colors a little bit:
+
+image::../__assets/doom-one-light-tree-sitter-font-level-4.png[Doom One Light with tree-sitter-font-level 4]
