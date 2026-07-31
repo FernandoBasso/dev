@@ -80,3 +80,49 @@ Tried again with `bundle` (instead of `bundler`) and it worked 😲.
 It is worth nothing that as of this writing, the docs only mention `bundle install` and not `bundler install`.
 
 It is also worth nothing that later I could not reproduce this problem and `bundler install` worked too.
+
+== Bundler version in Gemfile.lock
+
+link:https://blog.rubygems.org/2022/01/23/bundler-v2-3[Bundler 2.3^] introduced a requirement that requires that the bundler version we are using on the command line match the version in `Gem.lock`:
+
+[source,shell-session]
+----
+$ bundler install
+Bundler 4.0.10 is running, but your lockfile was generated with
+2.4.14. Installing Bundler 2.4.14 and restarting using that version.
+----
+
+The version is mentioned at the very end of `Gem.lock`.
+E.g.:
+
+.Excerpt from Gemfile.lock
+[source,text]
+----
+BUNDLED WITH
+   2.4.14
+----
+
+And it will use that version automtically, even if you restart your terminal session as soon as you enter the project directory where `Gemfile.lock` mentions that version.
+
+== Update bundler version in Gemfile.lock
+
+To update to a newer version of bundler in the lockfile, some tutorials recommend running `bundler update --bundler`.
+That did not work for me, as it respectes whatever the version is already at the end of `Gemfile.lock`, or the version of bundler loaded in the current shell session.
+
+There are at least two ways to update the bundler version for the project.
+The more straightforward one is by specifying the target version in the `bundler update` command:
+
+[source,shell-session]
+----
+$ bundler udpate --bundler=4.0.17
+----
+
+
+Another option is to let bundler choose whatever version you have by default (not the version in the project).
+For example, if a new shell session in your `$HOME` directory has bundler 4.0.17 by default, it is possible to make the project version be changed to that version as well.
+Follow these steps:
+
+. Remove the `BUNDLED WITH` section from the end of `Gemfile.lock`.
+. Start a new shell session so it doesn't inherit the old bundler version, but instead picks whatever bundler version is the default on your fresh, non-project shells.
+. Run `bundler update --bundler` (without “=x.y.z” version).
+. The `BUNDLED WITH` should now be back at the end of `Gemfile.lock` mentioning the new version.
